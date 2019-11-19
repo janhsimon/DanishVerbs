@@ -1,0 +1,21 @@
+﻿.hidden {
+  display: none;
+}
+
+span {
+  margin-left: 1em;
+}
+
+form {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+th {
+  position: sticky;
+  text-align: left;
+}
+
+th, td {
+  min-width: 8em;
+}

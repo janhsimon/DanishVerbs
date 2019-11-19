@@ -2,15 +2,15 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>title</title>
-    <!-- <link rel="stylesheet" href="style.css"> -->
-    <script src="script.js"></script>
+    <title>Danish Verbs</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="verbs.js"></script>
+    <script src="filter.js"></script>
   </head>
-  <body onload="filterVerbs()">
-    <form>
-      Filter: <input type="search" id="filter" oninput="filterVerbs()">
-    </form>
-    <p></p>
-    <table></table>
+  <body onload="initVerbs()">
+    <form>Filter: <input type="search" id="filter" oninput="filterVerbs()"><span></span></form>
+    <table>
+      <th>Infinitif</th><th>Præsens</th><th>Præteritum</th><th>Perfektum</th>
+    </table>
   </body>
 </html>

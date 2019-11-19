@@ -1,6 +1,4 @@
-var headers = ['Præsens', 'Præteritum', 'Perfektum']
-
-var verbs = [
+const verbs = [
   ['accepterer', 'accepterede', 'accepteret'],
   ['adskiller', 'adskilte', 'adskilt'],
   ['advarer', 'advarede', 'advaret'],
@@ -466,53 +464,3 @@ var verbs = [
   ['ønsker', 'ønskede', 'ønsket'],
   ['åbner', 'åbnede', 'åbnet']
 ];
-
-function  filterVerbs()
-{
-  var oldTable = document.querySelector('table');
-  var newTable = document.createElement('table');
-  var filterString = document.getElementById('filter').value;
-
-  var tr = document.createElement('tr');
-  for (var header = 0; header < 3; header++) {    
-    var th = document.createElement('th');
-    var text = document.createTextNode(headers[header]);
-    th.appendChild(text);
-    tr.appendChild(th);
-  }
-  newTable.appendChild(tr);
-
-  var rowsDisplayed = verbs.length;
-  for (var row = 0; row < verbs.length; row++) {
-    var stringFound = false;
-
-    var tr = document.createElement('tr');
-    for (var column = 0; column < 3; column++) {
-      var verbForm = verbs[row][column];
-
-      if (verbForm.includes(filterString)) {
-        stringFound = true;
-      }
-
-      var td = document.createElement('td');
-      var text = document.createTextNode(verbForm);
-      td.appendChild(text);
-      tr.appendChild(td);
-    }
-
-    if (stringFound === true) {
-      newTable.appendChild(tr);
-    }
-    else {
-      rowsDisplayed--;
-    }
-  }
-
-  oldTable.parentNode.replaceChild(newTable, oldTable);
-
-  var oldP = document.querySelector('p');
-  var newP = document.createElement('p');
-  var text = document.createTextNode(rowsDisplayed == verbs.length ? "Showing all " + verbs.length + " verbs." : "Showing " + rowsDisplayed + " of " + verbs.length + " verbs.");
-  newP.appendChild(text);
-  oldP.parentNode.replaceChild(newP, oldP);
-}
