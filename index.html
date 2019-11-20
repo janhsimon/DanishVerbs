@@ -8,9 +8,10 @@
     <script src="filter.js"></script>
   </head>
   <body onload="initVerbs()">
-    <form>Filter: <input type="search" id="filter" oninput="filterVerbs()"><span></span></form>
-    <table>
+    <form>Filter: <input type="search" id="filterInput" oninput="filterVerbs()"><span id="verbCountLabel"></span></form>
+    <table id="verbTable">
       <th>Infinitif</th><th>Præsens</th><th>Præteritum</th><th>Perfektum</th>
     </table>
   </body>
+  <p id="allVerbs"></p>
 </html>

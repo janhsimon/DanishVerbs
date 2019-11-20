@@ -1,5 +1,7 @@
+const invisibleStyleClassName = "hidden";
+
 function initVerbs() {
-  const table = document.querySelector('table');
+  const table = document.getElementById('verbTable');
 
   for (let verb = 0; verb < verbs.length; verb++) {
     const row = document.createElement('tr');
@@ -15,19 +17,19 @@ function initVerbs() {
 }
 
 function filterVerbs() {
-  const table = document.querySelector('table');
+  const table = document.getElementById('verbTable');
   const rows = table.getElementsByTagName('tr'); // first row is the headers
-  const filterString = document.getElementById('filter').value; 
+  const filterString = document.getElementById('filterInput').value; 
 
   let verbsInFilter = 0;
   for (let verb = 0; verb < verbs.length; verb++) {
     const row = rows[verb + 1]; // ignore the first row with the headers
     if (isVerbInFilter(filterString, verbs[verb])) {
-      row.classList.remove("hidden");
+      row.classList.remove(invisibleStyleClassName);
       verbsInFilter++;
     }
     else {
-      row.className = "hidden";
+      row.className = invisibleStyleClassName;
     }
   }
 
@@ -45,6 +47,12 @@ function isVerbInFilter(filterString, verbForms) {
 }
 
 function updateVerbCountLabel(verbsInFilter) {
-  const label = document.querySelector('span');
-  label.innerText = verbsInFilter == verbs.length ? "Showing all " + verbs.length + " verbs." : "Showing " + verbsInFilter + " of " + verbs.length + " verbs.";
+  const label = document.getElementById('verbCountLabel');
+
+  if (verbsInFilter == verbs.length) {
+    label.innerText = "Showing all " + verbs.length + " verbs.";
+  }
+  else {
+    label.innerText = "Showing " + verbsInFilter + " of " + verbs.length + " verbs.";
+  }
 }
